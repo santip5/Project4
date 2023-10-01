@@ -102,7 +102,7 @@ class Example extends React.Component {
 
   updateMotto = () => {
     if (this.state.inputValue.trim() !== '') {
-      this.setState({ motto: this.state.inputValue });
+      this.setState({ motto: this.state.mottoinputValue });
     }
   };
   
@@ -117,7 +117,7 @@ class Example extends React.Component {
   <input
     type="text"
     maxLength="20"
-    value={this.state.inputValue}
+    value={this.state.mottoinputValue}
     placeholder="Enter new motto (20 characters max)"
   />
   <button onClick={this.handleUpdateMotto}>Update Motto</button> 
