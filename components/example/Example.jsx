@@ -14,6 +14,7 @@ import '../../node_modules/prismjs/themes/prism.css';
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
 // React Components are subclass of React.Component.
+
 class Example extends React.Component {
   constructor(props) {
     super(props); // Must run the constructor of React.Component first
@@ -23,6 +24,7 @@ class Example extends React.Component {
     // We read the example model data into the state variable 'name'
     this.state = {
       name: window.models.exampleModel().name,
+      motto:window.models.exampleModel().motto ,
       counter: 0,
       inputValue: '',
       buttonWasClicked: '',
@@ -32,7 +34,8 @@ class Example extends React.Component {
     // so we cannot directly call the methods of this class. We
     // generate new functions that handle the event by just calling
     // the method that handles the event.
-    this.handleChangeBound = event => this.handleChange(event);
+    this.handleChangeBound = (event) => this.handleChange(event);
+    this.handleUpdateMotto=()=> this.updateMotto();
     // Note: A commmon idiom in React code is to use JavaScript bind() to
     // smash the method to accomplish this passthrough to the method:
     //      this.handleChange = this.handleChange.bind(this);
@@ -56,7 +59,7 @@ class Example extends React.Component {
     // Trigger the code coloring
     Prism.highlightAll();
   }
-
+  
   // componentWillUnmount - Called when Component is deactivated.
   componentWillUnmount() {
     // We need to tell the DOM to stop calling us otherwise React
@@ -97,13 +100,27 @@ class Example extends React.Component {
     return retVal;
   }
 
+  updateMotto = () => {
+    if (this.state.inputValue.trim() !== '') {
+      this.setState({ motto: this.state.inputValue });
+    }
+  };
+  
   render() {
     return (
       <div className="container Example">
         <h1>Project 4 React.js Example</h1>
 
         <div className="motto-update">
-          {/* Your problem #1 motto displaying and updating widget goes here */}
+  <p>Name: {this.state.name}</p>
+  <p>Motto: {this.state.motto}</p> 
+  <input
+    type="text"
+    maxLength="20"
+    value={this.state.inputValue}
+    placeholder="Enter new motto (20 characters max)"
+  />
+  <button onClick={this.handleUpdateMotto}>Update Motto</button> 
         </div>
 
         <p>
