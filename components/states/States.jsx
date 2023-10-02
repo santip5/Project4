@@ -21,8 +21,7 @@ class States extends React.Component {
 
   filterStates = () => {
     const { searchString } = this.state;
-    const filteredStates = window.models.states().filter((state) =>
-        state.toLowerCase().includes(searchString.toLowerCase())
+    const filteredStates = window.models.states().filter((state) => state.toLowerCase().includes(searchString.toLowerCase())
     );
     return filteredStates;
   };

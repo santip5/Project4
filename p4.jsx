@@ -1,8 +1,8 @@
 //p4 jsx file
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/main.css'
-import Header from '/components/header/Header';
+import './styles/main.css';
+import Header from './components/header/Header';
 import States from './components/states/States';
 import Example from './components/example/Example';
 
