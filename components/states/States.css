@@ -1,6 +1,34 @@
-/*
-CSS for the Project 4, Problem 2 States component
+/* Style for the input field */
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-Since CSS uses a global name space for classes we should use names starting with
-states- here.
-*/
+body {
+    background: linear-gradient(to bottom, #2980b9, #2ecc71);
+}
+
+/* Style for the list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 18px;
+}
+
+/* Style for the message when no matching states are found */
+p {
+    font-size: 16px;
+    color: #000000;
+}
