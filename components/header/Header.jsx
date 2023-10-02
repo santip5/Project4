@@ -1,20 +1,19 @@
-//header jsx file
-
-import React, { Component } from 'react';
+import React from 'react';
 import './Header.css';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className="header">
-        <img src="/path/to/your-image.png" alt="Your Logo" className="logo" />
-        <div className="header-content">
-          <h1>Hello, [Your Name]</h1>
-          <p>Your Personalized Slogan</p>
-        </div>
-      </div>
-    );
-  }
+/**
+ * Define Header, a React component of Project 4, Problem 3.
+ */
+class Header extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className="container Header"><div className="header">Group 5</div><div className="gradient"></div></div>
+        );
+    }
 }
 
 export default Header;

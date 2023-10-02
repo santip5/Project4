@@ -1,56 +1,40 @@
 //p4 jsx file
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import '/components/header/Header.css';
-import Header from '../components/header/Header.jsx';
+import './styles/main.css'
+import Header from '/components/header/Header';
 import States from './components/states/States';
+import Example from './components/example/Example';
 
-class Example extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Example View</h1>
-        <button onClick={this.props.toggleView}>Switch to States</button>
-      </div>
-    );
-  }
-}
-
-class States extends Component {
-  render() {
-    return (
-      <div>
-        <h1>States View</h1>
-        <button onClick={this.props.toggleView}>Switch to Example</button>
-      </div>
-    );
-  }
-}
-
-class App extends Component {
-  constructor() {
-    super();
+ReactDOM.render(
+    <Header/>,
+    document.getElementById('reactappHeader')
+);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      showExample: true,
+      isToggleOn: true
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  toggleView = () => {
-    this.setState((prevState) => ({
-      showExample: !prevState.showExample,
-    }));
-  };
+  handleClick() {
+      this.setState(prevState => ({
+          isToggleOn: !prevState.isToggleOn
+      }));
+  }
+
 
   render() {
     return (
-      <div>
-        {this.state.showExample ? (
-          <Example toggleView={this.toggleView} />
-        ) : (
-          <States toggleView={this.toggleView} />
-        )}
-      </div>
+        <div className="container">
+            <button onClick={this.handleClick}>
+                {this.state.isToggleOn ? 'Switch to States' : 'Switch to Example'}
+            </button>
+            <hr />
+            {this.state.isToggleOn ? <Example /> : <States />}
+        </div>
     );
   }
 }

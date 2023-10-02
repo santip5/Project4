@@ -102,7 +102,7 @@ class Example extends React.Component {
 
   updateMotto = () => {
     if (this.state.inputValue.trim() !== '') {
-      this.setState({ motto: this.state.mottoinputValue });
+      this.setState({ motto: this.state.inputValue });
     }
   };
   
@@ -112,15 +112,16 @@ class Example extends React.Component {
         <h1>Project 4 React.js Example</h1>
 
         <div className="motto-update">
-  <p>Name: {this.state.name}</p>
-  <p>Motto: {this.state.motto}</p> 
-  <input
-    type="text"
-    maxLength="20"
-    value={this.state.mottoinputValue}
-    placeholder="Enter new motto (20 characters max)"
-  />
-  <button onClick={this.handleUpdateMotto}>Update Motto</button> 
+            <p>Name: {this.state.name}</p>
+            <p>Motto: {this.state.motto}</p>
+            <input
+                type="text"
+                maxLength="20"
+                value={this.state.inputValue}
+                onChange={this.handleChangeBound}
+                placeholder="Enter new motto (20 characters max)"
+            />
+            <button onClick={this.handleUpdateMotto}>Update Motto</button>
         </div>
 
         <p>
