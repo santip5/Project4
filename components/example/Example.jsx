@@ -101,7 +101,7 @@ class Example extends React.Component {
   }
 
   updateMotto = () => {
-    if (this.state.inputValue.trim() !== '') {
+    if (this.state.mottoinputValue.trim() !== '') {
       this.setState({ motto: this.state.mottoinputValue });
     }
   };
